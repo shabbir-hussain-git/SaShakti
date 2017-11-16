@@ -37,6 +37,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:text="CaseStudy"
+                android:onClick="CaseStudy"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
@@ -83,6 +84,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Quiz"
                 android:layout_gravity="center_horizontal"/>
+
         </LinearLayout>
     </ScrollView>
 
