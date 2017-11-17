@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.shabbir.sashakti">
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,6 +28,8 @@
         <activity android:name=".TextToSpeach"></activity>
         <activity android:name=".Quiz" />
         <activity android:name=".QuizEndingActivity" />
+        <activity android:name=".News" />
+        <activity android:name=".NewsDetails" />
     </application>
 
 </manifest>

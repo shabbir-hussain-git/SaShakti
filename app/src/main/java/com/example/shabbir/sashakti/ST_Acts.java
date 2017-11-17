@@ -77,4 +77,9 @@ public class ST_Acts extends AppCompatActivity {
         startActivity(i);
         overridePendingTransition(R.anim.flip_in, R.anim.flip_out);
     }
+
+    public void News(View view) {
+        Intent i=new Intent(this,News.class);
+        startActivity(i);
+    }
 }
