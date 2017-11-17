@@ -77,7 +77,7 @@ public class News extends AppCompatActivity {
             };
             Random rand = new Random();
             int n = rand.nextInt(3) + 0;
-         cardView=(CardView)findViewById(R.id.progress);
+              cardView=(CardView)findViewById(R.id.progress);
 
             new JsonTask().execute(a[n]);
 
