@@ -1,9 +1,13 @@
 package com.example.shabbir.sashakti;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.LayoutTransition;
+import android.annotation.TargetApi;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -34,6 +39,7 @@ public class CaseStudy extends AppCompatActivity {
     private RecyclerView recyclerView;
     private GeneralAdapter mAdapter;
     Toolbar myToolbar;
+    private float TOOLBAR_ELEVATION=14f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +80,6 @@ public class CaseStudy extends AppCompatActivity {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 String pos=String.valueOf(position);
-//                Toast.makeText(getApplicationContext(),pos,Toast.LENGTH_LONG).show();
-
                 //Redirecting the string representation to deatil page activity along with the position is clicked
                 Intent i=new Intent(CaseStudy.this,CaseStudyDetails.class);
                 i.putExtra("json",entireFile);
@@ -86,8 +90,98 @@ public class CaseStudy extends AppCompatActivity {
             }
         });
 
+        recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            // Keeps track of the overall vertical offset in the list
+            int verticalOffset;
+
+            // Determines the scroll UP/DOWN direction
+            boolean scrollingUp;
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    if (scrollingUp) {
+                        if (verticalOffset > myToolbar.getHeight()) {
+                            toolbarAnimateHide();
+                        } else {
+                            toolbarAnimateShow(verticalOffset);
+                        }
+                    } else {
+                        if (myToolbar.getTranslationY() < myToolbar.getHeight() * -0.6 && verticalOffset > myToolbar.getHeight()) {
+                            toolbarAnimateHide();
+                        } else {
+                            toolbarAnimateShow(verticalOffset);
+                        }
+                    }
+                }
+            }
+
+
+            @Override
+            public final void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                verticalOffset += dy;
+                scrollingUp = dy > 0;
+                int toolbarYOffset = (int) (dy - myToolbar.getTranslationY());
+                myToolbar.animate().cancel();
+                if (scrollingUp) {
+                    if (toolbarYOffset < myToolbar.getHeight()) {
+                        if (verticalOffset > myToolbar.getHeight()) {
+                            toolbarSetElevation(TOOLBAR_ELEVATION);
+                        }
+                        myToolbar.setTranslationY(-toolbarYOffset);
+                    } else {
+                        toolbarSetElevation(0);
+                        myToolbar.setTranslationY(-myToolbar.getHeight());
+                    }
+                } else {
+                    if (toolbarYOffset < 0) {
+                        if (verticalOffset <= 0) {
+                            toolbarSetElevation(0);
+                        }
+                        myToolbar.setTranslationY(0);
+                    } else {
+                        if (verticalOffset > myToolbar.getHeight()) {
+                            toolbarSetElevation(TOOLBAR_ELEVATION);
+                        }
+                        myToolbar.setTranslationY(-toolbarYOffset);
+                    }
+                }
+            }
+        });
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void toolbarSetElevation(float elevation) {
+        // setElevation() only works on Lollipop
+    }
+
+    private void toolbarAnimateShow(final int verticalOffset) {
+        myToolbar.animate()
+                .translationY(0)
+                .setInterpolator(new LinearInterpolator())
+                .setDuration(180)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+                        toolbarSetElevation(verticalOffset == 0 ? 0 : TOOLBAR_ELEVATION);
+                    }
+                });
+
+    }
+
+    private void toolbarAnimateHide() {
+        myToolbar.animate()
+                .translationY(-myToolbar.getHeight())
+                .setInterpolator(new LinearInterpolator())
+                .setDuration(180)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        toolbarSetElevation(0);
+                    }
+                });
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

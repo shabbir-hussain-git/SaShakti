@@ -18,17 +18,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-/**
- * Created by shabbir on 4/8/17.
- */
-
 
 
 public class GeneralAdapter extends RecyclerView.Adapter<GeneralAdapter.MyViewHolder>{
+
     private List<General> movieList;
-
-
-
 
     public void updateList(List<General> list){
         movieList = list;
