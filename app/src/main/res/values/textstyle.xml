@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<style name="CustomText">
+    <item name="android:textSize">18sp</item>
+    <item name="android:textColor">@color/myGray</item>
+    <item name="android:padding">15dp</item>
+    <item name="android:lineSpacingExtra">10dp</item>
+</style>
+    <style name="ListViewCustomStyle">
+        <item name="android:alpha">0.7</item>
+        <item name="android:background">@color/myWhite</item>
+        <item name="android:divider">@android:color/darker_gray</item>
+        <item name="android:dividerHeight">2dp</item>
+    </style>
+    <!--android:alpha="0.7"-->
+    <!--android:background="@color/myWhite"-->
+    <!--android:divider="@android:color/darker_gray"-->
+    <!--android:dividerHeight="2dp"-->
+</resources>

@@ -68,7 +68,6 @@ public class GeneralAdapter extends RecyclerView.Adapter<GeneralAdapter.MyViewHo
         holder.title.setText(movie.getName());
         Picasso.with(holder.title.getContext())
                 .load(movie.getImageResource())
-                .placeholder(Color.WHITE)
                 .into(holder.imageView);
         //holder.imageView.setImageResource(movie.getImageResource());
     }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/quizbg"
+    tools:context="com.example.shabbir.sashakti.CaseStudy">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:text="Score"
+                android:textSize="20sp"
+                android:background="@mipmap/question"
+                android:gravity="center_horizontal|center_vertical"
+                android:textColor="#ffffff"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="bold"
+                />
+
+            <ImageView
+                android:id="@+id/cup"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="150dp"
+                android:src="@mipmap/cup"
+                android:layout_marginTop="20dp"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/highScore"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:textSize="30sp"
+                android:text="HighScore"
+                android:background="@mipmap/question"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffff"
+                android:gravity="center_horizontal|center_vertical"/>
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:text="HOME"
+                android:textSize="30sp"
+                android:textColor="#6b0768"
+                android:textStyle="bold"
+                android:background="@mipmap/home"
+                android:onClick="returnHome"
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

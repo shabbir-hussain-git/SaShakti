@@ -5,6 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 public class ST_Acts extends AppCompatActivity {
 
     @Override
@@ -25,10 +30,51 @@ public class ST_Acts extends AppCompatActivity {
                 "Child Welfare Committee issues directions for registration of case",
                 "Five cases of child molestation in Indian schools"};
 
+        String entireFile="";
+        InputStream is = getResources().openRawResource(R.raw.casestudy);
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            String line;
+            entireFile = "";
+            try {
+                while((line = br.readLine()) != null) { // <--------- place readLine() inside loop
+                    entireFile += (line + "\n"); // <---------- add each line to entireFile
+                }
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
         Intent i=new Intent(this,CaseStudy.class);
         i.putExtra("data",arr);
+        i.putExtra("startname","p");
+        i.putExtra("entireFile",entireFile);
         startActivity(i);
 
 
+    }
+
+    public void quiz(View view) {
+
+        String entireFile;
+        //Coverting json file into string representation
+        InputStream is = getResources().openRawResource(R.raw.quiz);
+        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+        String line;
+        entireFile = "";
+        try {
+            while((line = br.readLine()) != null) { // <--------- place readLine() inside loop
+                entireFile += (line + "\n"); // <---------- add each line to entireFile
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //////////////////////////////////////////////
+
+
+        Intent i=new Intent(this,QuizSplash.class);
+        i.putExtra("entireFile",entireFile);
+        startActivity(i);
+        overridePendingTransition(R.anim.flip_in, R.anim.flip_out);
     }
 }

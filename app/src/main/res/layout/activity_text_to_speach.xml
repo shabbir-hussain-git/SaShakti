@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context="com.example.shabbir.sashakti.TextToSpeach">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Text To Speech"
+            android:padding="15dip"
+            android:textColor="#0587d9"
+            android:textSize="26dip"
+            android:gravity="center"
+            android:textStyle="bold"/>
+
+        <EditText android:id="@+id/txtText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter some text to speak"
+            android:layout_marginTop="20dip"
+            android:layout_margin="10dip"/>
+
+        <Button android:id="@+id/btnSpeak"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Speak Out"
+            android:layout_margin="10dip"/>
+    </LinearLayout>
+</ScrollView>
+</RelativeLayout>

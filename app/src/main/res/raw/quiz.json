@@ -1,0 +1,61 @@
+{
+	"score":"0",
+  	"quiz":[
+	  {
+       "question" : "Q1.What does it minimum capitation fee for basic education?",
+       "option1" :"It’s Free",
+       "option2" :"More than 2k",
+        "option3" :"Actual Nigga",
+        "option4" :"Original Nigga",
+       "answer" : "It’s Free"
+    },
+      {
+        "question" : "Q2.Physical Punishment at schools is allowed?",
+        "option1" :"Yes",
+        "option2" :"No",
+        "option3" :"BhadMai Jao",
+        "option4" :"Ha Mai nai bataunga",
+        "answer" : "No"
+      },
+    {
+       "question" : "Q3.Goverment Teachers should teach at ",
+       "option1" :"Government Schools",
+       "option2" :"Private Tuitions",
+      "option3" :"morum",
+      "option4" :"chorum",
+       "answer" : "Government Schools"
+    },
+      {
+        "question" : "Q4.RTE Act mandates all the private schools to reserve how much of the seats for children?",
+        "option1" :"0%",
+        "option2" :"25%",
+        "option3" :"Actual Nigga",
+        "option4" :"Original Nigga",
+        "answer" : "25%"
+      },
+      {
+        "question" : "Q5.According to immoral trafficking “Child’’ means?",
+        "option1" :"Under 16",
+        "option2" :"Above 16",
+        "option3" :"BhadMai Jao",
+        "option4" :"Ha Mai nai bataunga",
+        "answer" : "Under 16"
+      },
+      {
+        "question" : "Q6.Major and Minor in terms of immoral trafficking means ?",
+        "option1" :"Under 16 and above 16",
+        "option2" :"Above 16 and under 16",
+        "option3" :"morum",
+        "option4" :"chorum",
+        "answer" : "Above 16 and under 16"
+      },
+      {
+        "question" : "Q6.Is it mandatory to Report case of abuse for police officials?",
+        "option1" :"No",
+        "option2" :"Yes",
+        "option3" :"morum",
+        "option4" :"chorum",
+        "answer" : "Yes"
+      }
+    ]
+}
